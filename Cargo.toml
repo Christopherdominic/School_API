@@ -1,16 +1,22 @@
 [package]
 name = "school-backend"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
 
 [dependencies]
-anyhow = "1.0.102"
 axum = "0.7"
-serde = { version = "1.0.228", features = ["derive"] }
-sqlx = { version = "0.8.6", features = ["postgres", "runtime-tokio-rustls", "macros"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sqlx = { version = "0.8", features = ["postgres", "runtime-tokio-rustls", "macros", "uuid", "chrono"] }
 tokio = { version = "1", features = ["full"] }
-tower = "0.5.3"
-tower-http = { version = "0.6.8", features = ["cors", "trace"] }
+tower = "0.5"
+tower-http = { version = "0.6", features = ["cors"] }
 tracing = "0.1"
-tracing-subscriber = "0.3.22"
-dotenvy = "0.15"
+tracing-subscriber = "0.3"
+dotenv = "0.15"
+uuid = { version = "1.0", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+jsonwebtoken = "9.0"
+bcrypt = "0.15"
+thiserror = "1.0"
+

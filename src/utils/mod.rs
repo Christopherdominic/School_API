@@ -1,5 +1,5 @@
-pub mod jwt;
 pub mod errors;
+pub mod jwt;
 
-pub use jwt::*;
 pub use errors::*;
+pub use jwt::*;

@@ -69,7 +69,7 @@ pub struct User {
     pub last_name: String,
     
     #[schema(example = "student")]
-    pub role: String, // Stored as string in DB, parsed to UserRole
+    pub role: String,
     
     #[schema(example = true)]
     pub is_active: bool,
@@ -79,6 +79,9 @@ pub struct User {
     
     #[schema(example = "2024-01-15T10:30:00Z", format = "date-time")]
     pub updated_at: DateTime<Utc>,
+
+    #[schema(example = "pending")]
+    pub status: String,
 }
 
 #[derive(Debug, Serialize, Deserialize, ToSchema)]
@@ -112,6 +115,9 @@ pub struct UserResponse {
     
     #[schema(example = "2024-01-15T10:30:00Z", format = "date-time")]
     pub created_at: DateTime<Utc>,
+
+    #[schema(example = "pending")]
+    pub status: String,
 }
 
 impl From<User> for UserResponse {
@@ -124,6 +130,7 @@ impl From<User> for UserResponse {
             role: user.role,
             is_active: user.is_active,
             created_at: user.created_at,
+            status: user.status,
         }
     }
 }
